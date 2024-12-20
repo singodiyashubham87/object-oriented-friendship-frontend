@@ -14,7 +14,7 @@ const Login = () => {
 
   return (
     <div className="font-primary w-full min-h-screen flex justify-center items-center bg-kali bg-center bg-blend-darken">
-      <div className="bg-secondary-dark border-2 border-primary-silver min-w-[400px] w-1/3 max-w-[466px] rounded-custom-s">
+      <div className="bg-secondary-dark border-2 border-primary-silver min-w-[350px] w-1/3 max-w-[400px] rounded-custom-s">
         <div className="w-full px-10 py-12 flex flex-col items-center gap-4">
           <img
             src="/public/images/oof-logo.png"
