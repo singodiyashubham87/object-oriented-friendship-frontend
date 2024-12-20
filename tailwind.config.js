@@ -30,13 +30,19 @@ export default {
         vsm: "441px",
         vvsm: "351px",
       },
+      borderRadius: {
+        'custom-xs': "10px",
+        'custom-s': '20px',
+        'custom-md': '30px',
+      },
+      fontSize: {
+        'xs': ['10px', '14px'], 
+        's': ['20px', '28px'], 
+        'md': ['30px', '40px'], 
+      },
       backgroundImage: {
-        instagram:
-          "radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%)",
-      },
-      textColor: {
-        instagram: "#e1306c",
-      },
+        'kali': "url('/public/images/linux.jpg')",
+      }
     },
   },
   plugins: [],

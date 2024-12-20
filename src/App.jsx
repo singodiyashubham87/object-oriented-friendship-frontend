@@ -1,7 +1,14 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Register from "./pages/Register/index.jsx";
+
 const App = () => {
   return (
-    <div className="bg-red-600">App</div>
-  )
-}
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Register />} />
+      </Routes>
+    </BrowserRouter>
+  );
+};
 
-export default App
+export default App;
