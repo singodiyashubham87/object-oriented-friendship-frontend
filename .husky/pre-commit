@@ -1,16 +1,12 @@
-echo "🏗️👷 Formatting and linting all files with Biome before committing 👷‍♂️🏗️"
-echo "Please be patient, this may take a while..."
+echo '🏗️👷 Formatting and linting staged files with Biome before committing 👷‍♂️🏗️'
+echo 'Please be patient, this may take a while...'
 
-# Format and lint all files using Biome
-yarn biome check --write .
-FORMAT_AND_LINT_RESULT=$?
+npx lint-staged
 
-if [ $FORMAT_AND_LINT_RESULT -ne 0 ]; then
-  echo "❌ Biome formatting and linting failed. Commit aborted."
+RESULT=$?
+if [ $RESULT -ne 0 ]; then
+  echo "❌ Lint-staged checks failed. Commit aborted."
   exit 1
 fi
 
-echo "✅ Biome formatting and linting passed. Proceeding with commit..."
-
-# Commit the staged files
-npx lint-staged
+echo "✅ All checks passed. Proceeding with commit..."
