@@ -1,10 +1,16 @@
-echo "Running pre-commit checks..."
-yarn biome check --write
-RESULT=$?
+echo "🏗️👷 Formatting and linting all files with Biome before committing 👷‍♂️🏗️"
+echo "Please be patient, this may take a while..."
 
-if [ $RESULT -ne 0 ]; then
-  echo "❌ Biome check failed. Commit aborted."
+# Format and lint all files using Biome
+yarn biome check --write .
+FORMAT_AND_LINT_RESULT=$?
+
+if [ $FORMAT_AND_LINT_RESULT -ne 0 ]; then
+  echo "❌ Biome formatting and linting failed. Commit aborted."
   exit 1
 fi
 
-echo "✅ Biome check passed. Proceeding with commit."
+echo "✅ Biome formatting and linting passed. Proceeding with commit..."
+
+# Commit the staged files
+npx lint-staged
