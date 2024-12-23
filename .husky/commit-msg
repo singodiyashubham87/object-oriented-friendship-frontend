@@ -1,5 +1,4 @@
 #!/bin/sh
-. "$(dirname "$0")/_/h"
 
 # Regex to validate commit message
 commit_regex="^(feat|fix|docs|style|refactor|perf|test|chore|ci|build|revert)(\(.+\))?: .{1,72}$"
