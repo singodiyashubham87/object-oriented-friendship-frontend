@@ -1,0 +1,10 @@
+echo "Running pre-commit checks..."
+yarn biome check --write
+RESULT=$?
+
+if [ $RESULT -ne 0 ]; then
+  echo "❌ Biome check failed. Commit aborted."
+  exit 1
+fi
+
+echo "✅ Biome check passed. Proceeding with commit."

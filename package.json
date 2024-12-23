@@ -10,7 +10,7 @@
     "format": "yarn biome format --write",
     "lint": "yarn biome lint --write",
     "preview": "vite preview",
-    "prepare": "husky install"
+    "prepare": "husky"
   },
   "dependencies": {
     "axios": "^1.7.9",
