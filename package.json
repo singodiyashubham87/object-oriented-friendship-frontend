@@ -7,7 +7,10 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "format": "yarn biome format --write",
+    "lint": "yarn biome lint --write",
+    "preview": "vite preview",
+    "prepare": "husky install"
   },
   "dependencies": {
     "axios": "^1.7.9",
@@ -19,11 +22,13 @@
     "yup": "^1.6.1"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.9.4",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^4.3.4",
     "autoprefixer": "^10.4.20",
     "globals": "^15.12.0",
+    "husky": "^9.1.7",
     "postcss": "^8.4.49",
     "tailwindcss": "^3.4.16",
     "vite": "^6.0.1"
