@@ -17,7 +17,7 @@ const Login = () => {
       <div className="bg-secondary-dark border-2 border-primary-silver min-w-[350px] w-1/3 max-w-[400px] rounded-custom-s">
         <div className="w-full px-10 py-12 flex flex-col items-center gap-4">
           <img
-            src="/public/images/oof-logo.png"
+            src="@/assets/images/oof-logo.png"
             alt="logo"
             width={"148px"}
             height={"60px"}

@@ -8,6 +8,7 @@ import Friends from "./pages/Friends/index.jsx";
 import Requests from "./pages/Requests/index.jsx";
 import Messages from "./pages/Messages/index.jsx";
 import UserProfile from "./pages/UserProfile/index.jsx";
+import Bookmark from "./pages/Bookmark/index.jsx";
 
 const App = () => {
   return (
@@ -17,10 +18,11 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Layout />}>
           <Route index element={<Feed />} />
-          <Route path="profile" element={<Profile />} />
           <Route path="friends" element={<Friends />} />
-          <Route path="requests" element={<Requests />} />
           <Route path="messages" element={<Messages />} />
+          <Route path="bookmark" element={<Bookmark />} />
+          <Route path="requests" element={<Requests />} />
+          <Route path="profile" element={<Profile />} />
           <Route path="profile/user/:id" element={<UserProfile />} />
         </Route>
       </Routes>

@@ -41,7 +41,7 @@ export default {
         'md': ['30px', '40px'], 
       },
       backgroundImage: {
-        'kali': "url('/public/images/linux.jpg')",
+        'kali': "url('@/assets/images/linux.jpg')",
       }
     },
   },
