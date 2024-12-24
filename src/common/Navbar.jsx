@@ -2,7 +2,6 @@ import logoutIcon from '@/assets/images/logout.svg'
 import logo from '@/assets/images/oof-logo.png'
 
 const Navbar = () => {
-	console.log('HEHE')
 	return (
 		<nav className="w-3/4 bg-dark-glassmorphism border-2 border-primary-silver rounded-custom-s">
 			<ul className="flex gap-4 items-center justify-center">

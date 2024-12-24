@@ -1,14 +1,14 @@
+import Bookmark from '@/pages/Bookmark/index.jsx'
+import Feed from '@/pages/Feed/index.jsx'
+import Friends from '@/pages/Friends/index.jsx'
+import Login from '@/pages/Login/index.jsx'
+import Messages from '@/pages/Messages/index.jsx'
+import Profile from '@/pages/Profile/index.jsx'
+import Register from '@/pages/Register/index.jsx'
+import Requests from '@/pages/Requests/index.jsx'
+import UserProfile from '@/pages/UserProfile/index.jsx'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Layout from './common/Layout.jsx'
-import Bookmark from './pages/Bookmark/index.jsx'
-import Feed from './pages/Feed/index.jsx'
-import Friends from './pages/Friends/index.jsx'
-import Login from './pages/Login/index.jsx'
-import Messages from './pages/Messages/index.jsx'
-import Profile from './pages/Profile/index.jsx'
-import Register from './pages/Register/index.jsx'
-import Requests from './pages/Requests/index.jsx'
-import UserProfile from './pages/UserProfile/index.jsx'
 
 const App = () => {
 	return (
