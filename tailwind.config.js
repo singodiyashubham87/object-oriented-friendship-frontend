@@ -13,7 +13,7 @@ export default {
 				'primary-dark': '#25221B',
 				'secondary-dark': '#373737',
 				'secondary-dark-80': '#373737CC',
-				'dark-glassmorphism': '#37373733',
+				'dark-glassmorphism': '#3737374D',
 				pink: '#AF5656',
 				green: '#56AF59',
 				cyan: '#68D8D8',
@@ -42,6 +42,12 @@ export default {
 			backgroundImage: {
 				kali: "url('@/assets/images/linux.jpg')",
 			},
+			blur: {
+				'76': '76%'
+			},
+			backdropBlur: {
+				'76': '76%'
+			}
 		},
 	},
 	plugins: [],

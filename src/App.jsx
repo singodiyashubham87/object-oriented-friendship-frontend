@@ -9,7 +9,6 @@ import Requests from '@/pages/Requests/index.jsx'
 import UserProfile from '@/pages/UserProfile/index.jsx'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Layout from './common/Layout.jsx'
-
 const App = () => {
 	return (
 		<BrowserRouter>
