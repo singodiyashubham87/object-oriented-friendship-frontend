@@ -9,6 +9,7 @@
 		"build": "vite build",
 		"format": "yarn biome format --write",
 		"lint": "yarn biome lint --write",
+		"check": "yarn biome check --write",
 		"preview": "vite preview",
 		"prepare": "husky"
 	},
