@@ -6,6 +6,7 @@ export default {
 		extend: {
 			colors: {
 				white: '#FFFFFF',
+				'dark': '#232121',
 				'primary-silver': '#C7C2C2',
 				'primary-silver-80': '#C7C2C2CC',
 				'secondary-silver': '#92918D',

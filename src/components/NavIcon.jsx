@@ -1,23 +1,30 @@
+import { Link } from "react-router-dom";
+
 const NavIcon = ({
   href,
   IconComponent,
   iconName,
   hoveredIcon,
   setHoveredIcon,
+  isActive,
 }) => {
   return (
     <li>
-      <a href={href}>
+      <Link to={href}>
         <div
-          className="p-1 bg-secondary-dark border-2 border-primary-silver-80 hover:border-secondary-dark rounded-custom-xs hover:bg-primary-silver"
+          className={`p-1 border-2 rounded-custom-xs ease-in duration-200 ${
+            isActive
+              ? "bg-secondary-silver border-secondary-dark"
+              : "bg-secondary-dark border-secondary-silver hover:bg-secondary-silver hover:border-secondary-dark"
+          }`}
           onMouseEnter={() => setHoveredIcon(iconName)}
           onMouseLeave={() => setHoveredIcon(null)}
         >
           <IconComponent
-            color={hoveredIcon === iconName ? "#373737" : "#92918D"}
+            color={isActive || hoveredIcon === iconName ? "#373737" : "#92918D"}
           />
         </div>
-      </a>
+      </Link>
     </li>
   );
 };

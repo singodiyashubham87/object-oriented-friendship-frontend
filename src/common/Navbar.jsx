@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useLocation } from "react-router-dom";
+import { useState } from "react";
 import LogoutIcon from "@/components/icons/Logout";
 import FriendsIcon from "@/components/icons/Friends";
 import InboxIcon from "@/components/icons/Inbox";
@@ -6,24 +7,25 @@ import BookmarkIcon from "@/components/icons/Bookmark";
 import RequestsIcon from "@/components/icons/Requests";
 import logo from "@/assets/images/oof-logo.png";
 import profileImage from "@/assets/images/profile.png";
-import NavIcon from '@/components/NavIcon';
+import NavIcon from "@/components/NavIcon";
 
 const Navbar = () => {
   const [hoveredIcon, setHoveredIcon] = useState(null);
+  const location = useLocation();
 
   const navIcons = [
-    { href: '/login', Icon: LogoutIcon, name: 'logout' },
-    { href: '/friends', Icon: FriendsIcon, name: 'friends' },
-    { href: '/messages', Icon: InboxIcon, name: 'inbox' },
+    { href: "/login", Icon: LogoutIcon, name: "logout" },
+    { href: "/friends", Icon: FriendsIcon, name: "friends" },
+    { href: "/messages", Icon: InboxIcon, name: "inbox" },
   ];
 
   const rightNavIcons = [
-    { href: '/bookmark', Icon: BookmarkIcon, name: 'bookmark' },
-    { href: '/requests', Icon: RequestsIcon, name: 'requests' },
+    { href: "/bookmark", Icon: BookmarkIcon, name: "bookmark" },
+    { href: "/requests", Icon: RequestsIcon, name: "requests" },
   ];
 
   return (
-    <nav className="w-3/4 bg-dark-glassmorphism border-2 border-primary-silver rounded-custom-s">
+    <nav className="w-3/4 bg-dark-glassmorphism border-2 border-secondary-silver rounded-custom-s blur-76 backdrop-blur-76">
       <ul className="flex gap-4 items-center justify-between py-4 px-6">
         <div className="leftIcons flex items-center justify-center gap-6">
           {navIcons.map((icon) => (
@@ -34,14 +36,13 @@ const Navbar = () => {
               iconName={icon.name}
               hoveredIcon={hoveredIcon}
               setHoveredIcon={setHoveredIcon}
+              isActive={location.pathname === icon.href}
             />
           ))}
         </div>
-
         <li>
           <img src={logo} alt="Logo" width={"148px"} height={"60px"} />
         </li>
-
         <div className="rightIcons flex items-stretch justify-center gap-6">
           {rightNavIcons.map((icon) => (
             <NavIcon
@@ -51,6 +52,7 @@ const Navbar = () => {
               iconName={icon.name}
               hoveredIcon={hoveredIcon}
               setHoveredIcon={setHoveredIcon}
+              isActive={location.pathname === icon.href}
             />
           ))}
           <li>
