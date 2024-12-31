@@ -14,7 +14,11 @@ export default {
 				'primary-dark': '#25221B',
 				'secondary-dark': '#373737',
 				'secondary-dark-80': '#373737CC',
-				'dark-glassmorphism': '#3737374D',
+				'dark-glassmorphism-30': '#3737374D',
+				'dark-glassmorphism-40': '#37373766',
+				'dark-glassmorphism-50': '#3737377F',
+				'dark-glassmorphism-60': '#37373799',
+				'dark-glassmorphism-70': '#373737B3',
 				pink: '#AF5656',
 				green: '#56AF59',
 				cyan: '#68D8D8',
@@ -41,7 +45,8 @@ export default {
 				md: ['30px', '40px'],
 			},
 			backgroundImage: {
-				kali: "url('@/assets/images/linux.jpg')",
+				'kali-desktop': "url('@/assets/images/kali-desktop.jpg')",
+				'kali-mobile': "url('@/assets/images/kali-mobile.jpg')",
 			},
 			blur: {
 				76: '76%',
