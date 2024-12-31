@@ -54,17 +54,17 @@ const truncateName = (name) => {
 
 const Friends = () => {
 	return (
-		<div className="flex-grow flex flex-col justify-center items-center w-full h-11/12 bg-dark-glassmorphism border-xs border-secondary-silver rounded-custom-s overflow-auto px-6 py-4">
-			<div className="flex justify-center mb-4">
-				<h2 className="text-3xl text-primary-silver font-bold uppercase">
+		<div className="flex-grow flex flex-col justify-center items-center gap-8 w-full h-11/12 bg-dark-glassmorphism-30 border-xs border-secondary-silver rounded-custom-s overflow-y-auto overflow-x-hidden px-6 py-6">
+			<div className="flex justify-center">
+				<h2 className="text-4xl text-primary-silver font-bold uppercase">
 					Friends
 				</h2>
 			</div>
-			<div className="w-full px-4 py-2 grid grid-cols-1 sm:grid-cols-3 gap-6 md:grid-cols-4 lg:grid-cols-5 overflow-auto">
+			<div className="w-full px-4 py-2 grid grid-cols-1 sm:grid-cols-3 gap-6 md:grid-cols-4 lg:grid-cols-5 overflow-y-auto overflow-x-hidden">
 				{friendsData.map((friend, index) => (
 					<div
 						key={friend.id}
-						className="flex flex-col items-center bg-secondary-dark rounded-custom-xs p-4 shadow-lg "
+						className="flex flex-col items-center bg-dark-glassmorphism-70 rounded-custom-xs p-4 shadow-lg"
 					>
 						<img
 							src={userAvatar}

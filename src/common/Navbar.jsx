@@ -25,9 +25,9 @@ const Navbar = () => {
 	]
 
 	return (
-		<nav className="w-full bg-dark-glassmorphism border-xs border-secondary-silver rounded-custom-s blur-76 backdrop-blur-76">
-			<ul className="flex gap-4 items-center justify-between py-6 px-8">
-				<div className="leftIcons flex items-center justify-center gap-6">
+		<nav className="w-full bg-dark-glassmorphism-30 border-xs border-secondary-silver rounded-custom-s blur-76 backdrop-blur-76">
+			<ul className="flex items-center justify-between py-6 px-8 gap-3 md:gap-6">
+				<div className="leftIcons flex items-center justify-center gap-3 md:gap-6">
 					{navIcons.map((icon) => (
 						<NavIcon
 							key={icon.name}
@@ -40,10 +40,10 @@ const Navbar = () => {
 						/>
 					))}
 				</div>
-				<li>
+				<li className="hidden md:block">
 					<img src={logo} alt="Logo" width={'125px'} />
 				</li>
-				<div className="rightIcons flex items-stretch justify-center gap-6">
+				<div className="rightIcons flex items-stretch justify-center gap-3 md:gap-6">
 					{rightNavIcons.map((icon) => (
 						<NavIcon
 							key={icon.name}
@@ -57,7 +57,7 @@ const Navbar = () => {
 					))}
 					<li>
 						<a href="/profile">
-							<div className="w-12 h-12 flex items-center justify-center rounded-custom-xs">
+							<div className="w-11 h-11 flex items-center justify-center rounded-custom-xs">
 								<img
 									src={profileImage}
 									alt="Profile"
