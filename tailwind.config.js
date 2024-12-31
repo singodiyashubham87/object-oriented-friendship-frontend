@@ -6,7 +6,7 @@ export default {
 		extend: {
 			colors: {
 				white: '#FFFFFF',
-				'dark': '#232121',
+				dark: '#232121',
 				'primary-silver': '#C7C2C2',
 				'primary-silver-80': '#C7C2C2CC',
 				'secondary-silver': '#92918D',
@@ -44,11 +44,14 @@ export default {
 				kali: "url('@/assets/images/linux.jpg')",
 			},
 			blur: {
-				'76': '76%'
+				76: '76%',
 			},
 			backdropBlur: {
-				'76': '76%'
-			}
+				76: '76%',
+			},
+			borderWidth: {
+				xs: '1px',
+			},
 		},
 	},
 	plugins: [],
