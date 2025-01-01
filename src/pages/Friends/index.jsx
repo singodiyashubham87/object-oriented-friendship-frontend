@@ -1,49 +1,9 @@
 import userAvatar from '@/assets/images/userAvatar.png'
+import LocationIcon from '@/components/icons/Location'
+import MessageIcon from '@/components/icons/Message'
+import { friendsData } from '@/data/friends'
 import React from 'react'
 import { Tooltip } from 'react-tooltip'
-
-const friendsData = [
-	{
-		id: 1,
-		name: 'Shubham',
-		location: 'Bengaluru',
-	},
-	{
-		id: 2,
-		name: 'Master',
-		location: 'Bengaluru',
-	},
-	{
-		id: 3,
-		name: 'Mickey',
-		location: 'Bengaluru',
-	},
-	{
-		id: 4,
-		name: 'Singodiya',
-		location: 'Bengaluru',
-	},
-	{
-		id: 5,
-		name: 'Anonymo.',
-		location: 'Bengaluru',
-	},
-	{
-		id: 8,
-		name: 'Shree Ji',
-		location: 'Bengaluru',
-	},
-	{
-		id: 9,
-		name: 'Kanuda',
-		location: 'Bengaluru',
-	},
-	{
-		id: 10,
-		name: 'Premswaroopa',
-		location: 'Bengaluru',
-	},
-]
 
 const truncateName = (name) => {
 	if (name.length > 7) {
@@ -64,31 +24,40 @@ const Friends = () => {
 				{friendsData.map((friend, index) => (
 					<div
 						key={friend.id}
-						className="flex flex-col items-center bg-dark-glassmorphism-70 rounded-custom-xs p-4 shadow-lg"
+						className="flex flex-col gap-2 items-center bg-dark-glassmorphism-70 rounded-custom-xs p-4 shadow-lg"
 					>
 						<img
 							src={userAvatar}
 							alt={'user-avatar'}
-							className="w-20 h-20 rounded-full object-cover mb-3"
+							className="w-20 h-20 rounded-full object-cover"
 						/>
-						<div className="relative group">
-							<p
-								className="text-primary-silver text-sm font-semibold truncate max-w-[100px] text-center"
-								data-tooltip-id={`tooltip-${index}`}
-							>
-								{truncateName(friend.name)}
-							</p>
-							<Tooltip id={`tooltip-${index}`} place="top" effect="solid">
-								{friend.name}
-							</Tooltip>
+						<div className="flex flex-col items-center gap-1">
+							<div className="relative group">
+								<p
+									className="text-primary-silver text-sm font-semibold truncate max-w-[100px] text-center"
+									data-tooltip-id={`tooltip-${index}`}
+								>
+									{truncateName(friend.name)}
+								</p>
+								<div>
+									<Tooltip id={`tooltip-${index}`} place="top" effect="solid">
+										{friend.name}
+									</Tooltip>
+								</div>
+								<div className="flex items-center gap-1">
+									<LocationIcon />
+									<p className="text-secondary-silver text-sm">
+										{friend.location}
+									</p>
+								</div>
+							</div>
+							<div className="flex gap-2 items-center bg-primary-silver text-primary-dark font-primary font-semibold px-4 py-1 rounded-custom-xs hover:bg-secondary-silver cursor-pointer">
+								<button type="button" className="uppercase text-sm">
+									Message
+								</button>
+								<MessageIcon size={16} />
+							</div>
 						</div>
-						<p className="text-secondary-silver text-sm">{friend.location}</p>
-						<button
-							type="button"
-							className="mt-3 bg-primary-silver text-secondary-dark px-4 py-2 rounded-custom-xs hover:bg-secondary-silver"
-						>
-							Message
-						</button>
 					</div>
 				))}
 			</div>
