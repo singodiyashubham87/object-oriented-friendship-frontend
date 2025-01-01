@@ -1,7 +1,7 @@
 const LocationIcon = ({ color = '#25221B', strokeColor = '#92918D' }) => (
 	<svg
-		width="11"
-		height="12"
+		width="13"
+		height="14"
 		viewBox="0 0 11 12"
 		fill="none"
 		xmlns="http://www.w3.org/2000/svg"
