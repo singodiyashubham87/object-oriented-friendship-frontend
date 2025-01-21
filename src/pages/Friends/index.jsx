@@ -1,7 +1,7 @@
 import userAvatar from '@/assets/images/userAvatar.png'
 import LocationIcon from '@/components/icons/Location'
 import MessageIcon from '@/components/icons/Message'
-import { friendsData } from '@/data/friends'
+import { friendsData } from '@/pages/Friends/data/friends'
 import React from 'react'
 import { Tooltip } from 'react-tooltip'
 

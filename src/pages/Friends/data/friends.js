@@ -35,7 +35,27 @@ export const friendsData = [
 		location: 'Bengaluru',
 	},
 	{
-		id: 10,
+		id: 11,
+		name: 'Premswaroopa',
+		location: 'Bengaluru',
+	},
+	{
+		id: 12,
+		name: 'Anonymous',
+		location: 'Bengaluru',
+	},
+	{
+		id: 13,
+		name: 'Shree Ji',
+		location: 'Bengaluru',
+	},
+	{
+		id: 14,
+		name: 'Kanuda',
+		location: 'Bengaluru',
+	},
+	{
+		id: 15,
 		name: 'Premswaroopa',
 		location: 'Bengaluru',
 	},
