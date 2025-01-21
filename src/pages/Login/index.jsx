@@ -1,3 +1,4 @@
+import logo from '@/assets/images/oof-logo.png'
 import { ErrorMessage, Field, Form, Formik } from 'formik'
 import * as Yup from 'yup'
 
@@ -13,15 +14,10 @@ const Login = () => {
 	}
 
 	return (
-		<div className="font-primary w-full min-h-screen flex justify-center items-center bg-kali bg-center bg-blend-darken">
+		<div className="font-primary w-full min-h-screen flex justify-center items-center bg-kali-mobile md:bg-kali-desktop bg-center bg-blend-darken">
 			<div className="bg-secondary-dark border-2 border-primary-silver min-w-[350px] w-1/3 max-w-[400px] rounded-custom-s">
 				<div className="w-full px-10 py-12 flex flex-col items-center gap-4">
-					<img
-						src="@/assets/images/oof-logo.png"
-						alt="logo"
-						width={'148px'}
-						height={'60px'}
-					/>
+					<img src={logo} alt="logo" width={'148px'} height={'60px'} />
 					<Formik
 						initialValues={{
 							email: '',
