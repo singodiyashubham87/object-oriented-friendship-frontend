@@ -1,6 +1,6 @@
 import userAvatar from '@/assets/images/userAvatar.png'
-import LocationIcon from '@/components/icons/Location'
-import MessageIcon from '@/components/icons/Message'
+import LocationIcon from '@/components/icons/LocationIcon'
+import MessageIcon from '@/components/icons/MessageIcon'
 import { friendsData } from '@/pages/Friends/data/friends'
 import React from 'react'
 import { Tooltip } from 'react-tooltip'
@@ -13,7 +13,7 @@ const Friends = () => {
 					Friends
 				</h2>
 			</div>
-			<div className="w-full px-4 py-2 grid grid-cols-1 msm:grid-cols-2 sm:grid-cols-3 gap-6 md:grid-cols-4 lg:grid-cols-5 overflow-y-auto overflow-x-hidden">
+			<div className="w-full flex justify-center flex-wrap px-4 py-2 gap-6 overflow-y-auto overflow-x-hidden">
 				{friendsData.map((friend, index) => (
 					<div
 						key={friend.id}
