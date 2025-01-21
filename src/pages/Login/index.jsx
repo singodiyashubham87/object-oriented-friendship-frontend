@@ -1,8 +1,11 @@
 import logo from '@/assets/images/oof-logo.png'
 import { ErrorMessage, Field, Form, Formik } from 'formik'
+import { useNavigate } from 'react-router-dom'
 import * as Yup from 'yup'
 
 const Login = () => {
+	const navigate = useNavigate()
+
 	const loginValidationSchema = Yup.object({
 		email: Yup.string().email('❗Invalid email address').required('❗Required'),
 		password: Yup.string().required('❗Required'),
@@ -10,7 +13,7 @@ const Login = () => {
 
 	const handleSubmit = (values) => {
 		console.log('Form values', values)
-		return
+		navigate('/')
 	}
 
 	return (
