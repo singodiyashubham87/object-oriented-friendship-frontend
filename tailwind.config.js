@@ -27,7 +27,8 @@ export default {
 				cyan: '#68D8D8',
 			},
 			fontFamily: {
-				primary: 'Montserrat',
+				primary: 'JetBrains Mono',
+				secondary: 'Montserrat',
 			},
 			screens: {
 				xxl: '1751px',
