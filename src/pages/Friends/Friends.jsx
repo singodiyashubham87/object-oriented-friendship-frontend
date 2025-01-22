@@ -17,9 +17,9 @@ const Friends = () => {
 				{friendsData?.map((friend, index) => (
 					<div
 						key={friend.id}
-						className="flex flex-col gap-2 items-center justify-stretch bg-dark-glassmorphism-70 rounded-custom-xs p-4 shadow-lg border-2 border-gray-30"
+						className="flex flex-col gap-2 items-center justify-stretch bg-dark-glassmorphism-70 rounded-custom-xs p-4 shadow-lg border-2 border-primary-gray-30"
 					>
-						<div className="w-24 border-2 border-gray-30 overflow-hidden rounded-full">
+						<div className="w-24 border-2 border-primary-gray-30 overflow-hidden rounded-full">
 							<img
 								src={userAvatar}
 								alt="user-avatar"
