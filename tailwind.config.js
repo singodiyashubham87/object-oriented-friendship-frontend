@@ -11,6 +11,7 @@ export default {
 				'primary-silver-50': '#C7C2C27F',
 				'primary-silver-80': '#C7C2C2CC',
 				'secondary-silver': '#92918D',
+				'secondary-silver-70': '#92918DB3',
 				'input-placeholder-gray': '#92918D',
 				gray: '#B0AFAF',
 				'gray-30': '#B0AFAF4D',
@@ -23,7 +24,9 @@ export default {
 				'dark-glassmorphism-60': '#37373799',
 				'dark-glassmorphism-70': '#373737B3',
 				pink: '#AF5656',
-				green: '#56AF59',
+				'primary-green': '#56AF59',
+				'dark-cyan': '#56AF9B',
+				'dark-cyan-70': '#56AF9BB3',
 				cyan: '#68D8D8',
 			},
 			fontFamily: {
@@ -60,6 +63,11 @@ export default {
 			},
 			borderWidth: {
 				xs: '1px',
+				sm: '2px',
+			},
+			padding: {
+				xs: '1px',
+				sm: '2px',
 			},
 		},
 	},
