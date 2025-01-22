@@ -7,14 +7,14 @@ import { Tooltip } from 'react-tooltip'
 
 const Friends = () => {
 	return (
-		<div className="flex-grow flex flex-col justify-center items-center gap-8 w-full h-11/12 bg-dark-glassmorphism-30 border-xs border-secondary-silver rounded-custom-s overflow-y-auto overflow-x-hidden px-6 py-6">
-			<div className="flex justify-center">
+		<div className="flex-grow flex flex-col justify-evenly items-center w-full h-11/12 bg-dark-glassmorphism-30 border-xs border-secondary-silver rounded-custom-s overflow-y-auto overflow-x-hidden px-6 py-6">
+			<div className="flex justify-center h-1/5">
 				<h2 className="text-4xl text-primary-silver font-bold uppercase">
 					Friends
 				</h2>
 			</div>
-			<div className="w-full flex justify-center flex-wrap px-4 py-2 gap-6 overflow-y-auto overflow-x-hidden">
-				{friendsData.map((friend, index) => (
+			<div className="w-full h-4/5 flex justify-center flex-wrap px-4 my-6 gap-6 overflow-y-auto overflow-x-hidden">
+				{friendsData?.map((friend, index) => (
 					<div
 						key={friend.id}
 						className="flex flex-col gap-2 items-center justify-stretch bg-dark-glassmorphism-70 rounded-custom-xs p-4 shadow-lg border-2 border-gray-30"
