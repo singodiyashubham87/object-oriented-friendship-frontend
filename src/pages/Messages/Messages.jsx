@@ -1,9 +1,9 @@
 import MessageIcon from '@/components/icons/MessageIcon'
-import React from 'react'
+import React, { useState } from 'react'
 import { chatData, message } from './data/chatAndMessages'
 
 const Messages = () => {
-	const selectedChatIndex = 1
+	const [selectedChatIndex, setSelectedChatIndex] = useState(0)
 	return (
 		<div className="flex-grow flex flex-col justify-between items-center gap-8 w-full h-full bg-dark-glassmorphism-30 border-xs border-secondary-silver rounded-custom-s overflow-hidden px-6 py-6">
 			<div className="flex justify-center">
@@ -17,13 +17,15 @@ const Messages = () => {
 						const isChatSelected = selectedChatIndex === index
 
 						return (
+							// biome-ignore lint/a11y/useKeyWithClickEvents: <explanation>
 							<div
-								className={`flex border-sm p-4 gap-4 rounded-custom-s ${
+								className={`flex border-sm p-4 gap-4 rounded-custom-s cursor-pointer ${
 									isChatSelected
-										? 'bg-secondary-silver border-secondary-dark'
-										: 'bg-secondary-dark border-secondary-silver'
+										? 'bg-primary-silver border-secondary-dark'
+										: 'bg-dark-glassmorphism-50 border-primary-silver'
 								}`}
 								key={chat.id}
+								onClick={() => setSelectedChatIndex(index)}
 							>
 								<img
 									src={chat.avatarUrl}
@@ -38,7 +40,9 @@ const Messages = () => {
 												: 'text-primary-silver'
 										} font-semibold`}
 									>
-										{chat.name}
+										{chat.name?.length > 15
+											? chat.name.slice(0, 15)
+											: chat.name}
 									</h6>
 									<span
 										className={`text-sm opacity-80 ${
@@ -56,7 +60,7 @@ const Messages = () => {
 						)
 					})}
 				</div>
-				<div className="messageContent w-2/3 flex flex-col justify-between p-8 bg-secondary-dark border-sm border-secondary-silver rounded-custom-s">
+				<div className="messageContent w-2/3 flex flex-col justify-between p-4 bg-dark-glassmorphism-50 border-sm border-secondary-silver rounded-custom-s">
 					<div className="chats overflow-y-auto flex flex-col gap-2">
 						{message?.map((msg) =>
 							msg.isSentByMe ? (
@@ -100,9 +104,9 @@ const Messages = () => {
 							name="message"
 							id="messsage"
 							placeholder="Type a message..."
-							className="w-full p-2 rounded-custom-xs outline-none"
+							className="w-full pr-2 pl-4 py-1 rounded-custom-s outline-none bg-dark-glassmorphism-30 border-2 border-primary-gray text-primary-silver"
 						/>
-						<div className="p-1 rounded-full border-2 border-secondary-silver flex items-center cursor-pointer bg-secondary-silver hover:bg-secondary-dark">
+						<div className="p-1 px-2 rounded-custom-s border-2 border-secondary-silver flex items-center cursor-pointer bg-secondary-silver hover:bg-secondary-dark">
 							<MessageIcon size={16} />
 						</div>
 					</div>
