@@ -1,4 +1,4 @@
-import Bookmark from "@/pages/Bookmark/index.jsx";
+import Bookmark from "@/pages/Bookmark/Bookmark.jsx";
 import Feed from "@/pages/Feed/Feed.jsx";
 import Friends from "@/pages/Friends/Friends.jsx";
 import Login from "@/pages/Login/Login.jsx";
