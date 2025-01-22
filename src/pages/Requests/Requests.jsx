@@ -1,5 +1,5 @@
 const Requests = () => {
-	return <div>Requests</div>
-}
+  return <div>Requests</div>;
+};
 
-export default Requests
+export default Requests;
