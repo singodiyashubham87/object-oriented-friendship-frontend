@@ -23,11 +23,11 @@ export default {
         "dark-glassmorphism-50": "#3737377F",
         "dark-glassmorphism-60": "#37373799",
         "dark-glassmorphism-70": "#373737B3",
-        pink: "#AF5656",
+        "primary-pink": "#AF5656",
         "primary-green": "#56AF59",
         "dark-cyan": "#56AF9B",
         "dark-cyan-70": "#56AF9BB3",
-        cyan: "#68D8D8",
+        "primary-cyan": "#68D8D8",
       },
       fontFamily: {
         primary: "JetBrains Mono",
@@ -42,6 +42,7 @@ export default {
         vvsm: "351px",
       },
       borderRadius: {
+        "custom-xxs": "5px",
         "custom-xs": "10px",
         "custom-s": "20px",
         "custom-md": "30px",
