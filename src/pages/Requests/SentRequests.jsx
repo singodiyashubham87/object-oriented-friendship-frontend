@@ -55,12 +55,6 @@ const SentRequests = () => {
                 </div>
               </div>
               <div className="flex gap-2 items-center bg-primary-silver-50 text-primary-dark px-4 py-1 rounded-custom-xs hover:bg-secondary-silver cursor-pointer">
-                <button
-                  type="button"
-                  className="uppercase text-base font-primary font-semibold"
-                >
-                  Message
-                </button>
                 <MessageIcon size={16} />
               </div>
             </div>
