@@ -18,19 +18,19 @@ const ConnectionRequestIcon = ({
         r="2.5"
         fill={userColor}
         stroke={plusSignColor}
-        stroke-width="0.2"
-        stroke-linecap="round"
+        strokeWidth="0.2"
+        strokeLinecap="round"
       />
       <mask id="path-2-inside-1_95_1377" fill="white">
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M7.5 8.125C5.28083 8.125 3.44757 9.54121 3.16328 11.3767C3.12101 11.6496 3.34885 11.875 3.625 11.875H11.375C11.6511 11.875 11.879 11.6496 11.8367 11.3767C11.5524 9.54121 9.71916 8.125 7.5 8.125Z"
         />
       </mask>
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M7.5 8.125C5.28083 8.125 3.44757 9.54121 3.16328 11.3767C3.12101 11.6496 3.34885 11.875 3.625 11.875H11.375C11.6511 11.875 11.879 11.6496 11.8367 11.3767C11.5524 9.54121 9.71916 8.125 7.5 8.125Z"
         fill={userColor}
       />
@@ -39,8 +39,8 @@ const ConnectionRequestIcon = ({
         fill={plusSignColor}
         mask="url(#path-2-inside-1_95_1377)"
       />
-      <path d="M11.5 8V11" stroke="#33363F" stroke-linecap="round" />
-      <path d="M10 9.5H13" stroke="#33363F" stroke-linecap="round" />
+      <path d="M11.5 8V11" stroke="#33363F" strokeLinecap="round" />
+      <path d="M10 9.5H13" stroke="#33363F" strokeLinecap="round" />
     </svg>
   );
 };
