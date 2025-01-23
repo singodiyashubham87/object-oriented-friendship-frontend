@@ -1,6 +1,6 @@
 import userAvatar from "@/assets/images/userAvatar.png";
 import LocationIcon from "@/components/icons/LocationIcon";
-import MessageIcon from "@/components/icons/MessageIcon";
+import RevertRequestIcon from "@/components/icons/RevertRequestIcon";
 import { friendsData } from "@/pages/Friends/data/friends";
 import React from "react";
 import { Tooltip } from "react-tooltip";
@@ -55,7 +55,7 @@ const ReceivedRequests = () => {
                 </div>
               </div>
               <div className="flex gap-2 items-center bg-primary-silver-50 text-primary-dark px-4 py-1 rounded-custom-xs hover:bg-secondary-silver cursor-pointer">
-                <MessageIcon size={16} />
+                <RevertRequestIcon size={16} />
                 <button
                   type="button"
                   className="uppercase text-base font-primary font-semibold"
