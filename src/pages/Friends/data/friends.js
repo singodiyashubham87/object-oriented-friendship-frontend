@@ -59,4 +59,14 @@ export const friendsData = [
     name: "Premswaroopa",
     location: "Bengaluru",
   },
+  {
+    id: 16,
+    name: "Anonymous",
+    location: "Bengaluru",
+  },
+  {
+    id: 17,
+    name: "Shree Ji",
+    location: "Bengaluru",
+  },
 ];
