@@ -15,13 +15,13 @@ const ReceivedRequests = () => {
           Received Requests
         </h2>
       </div>
-      <div className="w-full h-4/5 flex justify-center flex-wrap px-4 my-6 gap-6 overflow-y-auto overflow-x-hidden">
+      <div className="w-full h-4/5 flex justify-center items-stretch flex-wrap px-4 my-6 gap-6 overflow-y-auto overflow-x-hidden">
         {friendsData?.map((friend, index) => (
           <div
             key={friend.id}
             className="flex flex-col gap-2 items-center justify-stretch bg-dark-glassmorphism-70 rounded-custom-xs p-4 shadow-lg border-2 border-primary-gray-30"
           >
-            <div className="w-24 border-2 border-primary-gray-30 overflow-hidden rounded-full">
+            <div className="w-20 border-2 border-primary-gray-30 overflow-hidden rounded-full">
               <img
                 src={userAvatar}
                 alt="user-avatar"
@@ -30,17 +30,19 @@ const ReceivedRequests = () => {
             </div>
             <div className="flex flex-col items-center gap-1">
               <div className="relative group text-center">
-                {friend.name.length > 7 ? (
+                {friend?.name?.length > 7 ? (
                   <>
                     <p
-                      className="text-primary-silver text-base font-semibold truncate max-w-[100px] text-center"
+                      className="text-primary-silver text-base font-semibold truncate text-center"
                       data-tooltip-id={`tooltip-${index}`}
                     >
-                      {friend.name.length > 7
-                        ? `${friend.name.slice(0, 7)}...`
-                        : friend.name}
+                      {`${friend.name?.slice(0, 7)}...`}
                     </p>
-                    <Tooltip id={`tooltip-${index}`} place="top" effect="solid">
+                    <Tooltip
+                      id={`tooltip-${index}`}
+                      place="bottom"
+                      effect="solid"
+                    >
                       {friend.name}
                     </Tooltip>
                   </>
@@ -56,14 +58,14 @@ const ReceivedRequests = () => {
                   </p>
                 </div>
               </div>
-              <div className="flex gap-2 items-center justify-evenly py-1 rounded-custom-xs">
-                <div className="p-1 bg-primary-pink rounded-custom-xxs border-xs border-primary-dark cursor-pointer">
+              <div className="flex gap-2 items-center justify-evenly py-1 rounded-custom-xs px-4">
+                <div className="p-1 bg-primary-pink hover:bg-primary-pink-70 rounded-custom-xxs border-xs border-primary-dark cursor-pointer">
                   <RejectRequestIcon size="15" />
                 </div>
-                <div className="p-1 bg-primary-cyan rounded-custom-xxs border-xs border-primary-dark cursor-pointer">
+                <div className="p-1 bg-primary-cyan hover:bg-primary-cyan-70 rounded-custom-xxs border-xs border-primary-dark cursor-pointer">
                   <BookmarkRequestUserIcon size="16" />
                 </div>
-                <div className="p-1 bg-primary-green rounded-custom-xxs border-xs border-primary-dark cursor-pointer">
+                <div className="p-1 bg-primary-green hover:bg-primary-green-70 rounded-custom-xxs border-xs border-primary-dark cursor-pointer">
                   <AcceptRequestIcon size="16" />
                 </div>
               </div>
