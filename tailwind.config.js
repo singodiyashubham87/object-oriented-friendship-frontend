@@ -25,9 +25,12 @@ export default {
         "dark-glassmorphism-70": "#373737B3",
         "primary-pink": "#AF5656",
         "primary-green": "#56AF59",
+        "primary-cyan": "#68D8D8",
+        "primary-pink-70": "#AF5656B3",
+        "primary-green-70": "#56AF59B3",
+        "primary-cyan-70": "#68D8D8B3",
         "dark-cyan": "#56AF9B",
         "dark-cyan-70": "#56AF9BB3",
-        "primary-cyan": "#68D8D8",
       },
       fontFamily: {
         primary: "JetBrains Mono",
