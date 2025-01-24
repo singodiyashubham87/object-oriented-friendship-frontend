@@ -1,8 +1,6 @@
 import userAvatar from "@/assets/images/userAvatar.png";
-import AcceptRequestIcon from "@/components/icons/AcceptRequestIcon";
-import BookmarkRequestUserIcon from "@/components/icons/BookmarkRequestUserIcon";
 import LocationIcon from "@/components/icons/LocationIcon";
-import RejectRequestIcon from "@/components/icons/RejectRequestIcon";
+import RevertRequestIcon from "@/components/icons/RevertRequestIcon";
 import { friendsData } from "@/pages/Friends/data/friends";
 import React from "react";
 import { Tooltip } from "react-tooltip";
@@ -56,16 +54,14 @@ const SentRequests = () => {
                   </p>
                 </div>
               </div>
-              <div className="flex gap-2 items-center justify-evenly py-1 rounded-custom-xs">
-                <div className="p-1 bg-primary-pink rounded-custom-xxs border-xs border-primary-dark cursor-pointer">
-                  <RejectRequestIcon size="15" />
-                </div>
-                <div className="p-1 bg-primary-cyan rounded-custom-xxs border-xs border-primary-dark cursor-pointer">
-                  <BookmarkRequestUserIcon size="16" />
-                </div>
-                <div className="p-1 bg-primary-green rounded-custom-xxs border-xs border-primary-dark cursor-pointer">
-                  <AcceptRequestIcon size="16" />
-                </div>
+              <div className="flex gap-2 items-center bg-primary-silver-50 text-primary-dark px-4 py-1 rounded-custom-xs hover:bg-secondary-silver cursor-pointer">
+                <RevertRequestIcon size={16} />
+                <button
+                  type="button"
+                  className="uppercase text-base font-primary font-semibold"
+                >
+                  Revert
+                </button>
               </div>
             </div>
           </div>
