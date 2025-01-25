@@ -1,26 +1,13 @@
 const RejectRequestIcon = ({ color = "#33363F", size = "16" }) => (
   <svg
-    width={size}
-    height={size}
-    viewBox="0 0 14 14"
-    fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    height={size}
+    viewBox="0 -960 960 960"
+    width={size}
+    fill={color}
   >
-    <title id="rejectIcon">Reject request icon</title>
-    <path
-      d="M13 1L1 13"
-      stroke={color}
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M1 1L13 13"
-      stroke={color}
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
+    <title>Reject</title>
+    <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
   </svg>
 );
 
