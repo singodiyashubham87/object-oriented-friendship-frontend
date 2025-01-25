@@ -58,15 +58,15 @@ const ReceivedRequests = () => {
                   </p>
                 </div>
               </div>
-              <div className="flex gap-2 items-center justify-evenly py-1 rounded-custom-xs px-4">
-                <div className="p-1 bg-primary-pink hover:bg-primary-pink-70 rounded-custom-xxs border-xs border-primary-dark cursor-pointer">
-                  <RejectRequestIcon size="15" />
+              <div className="flex gap-3 items-center justify-evenly py-1 rounded-custom-xs px-4">
+                <div className="p-sm bg-primary-pink hover:bg-primary-pink-70 rounded-custom-xxs border-xs border-primary-dark cursor-pointer">
+                  <RejectRequestIcon size="20" />
                 </div>
-                <div className="p-1 bg-primary-cyan hover:bg-primary-cyan-70 rounded-custom-xxs border-xs border-primary-dark cursor-pointer">
-                  <BookmarkRequestUserIcon size="16" />
+                <div className="p-sm bg-primary-cyan hover:bg-primary-cyan-70 rounded-custom-xxs border-xs border-primary-dark cursor-pointer">
+                  <BookmarkRequestUserIcon size="20" />
                 </div>
-                <div className="p-1 bg-primary-green hover:bg-primary-green-70 rounded-custom-xxs border-xs border-primary-dark cursor-pointer">
-                  <AcceptRequestIcon size="16" />
+                <div className="p-sm bg-primary-green hover:bg-primary-green-70 rounded-custom-xxs border-xs border-primary-dark cursor-pointer">
+                  <AcceptRequestIcon size="20" />
                 </div>
               </div>
             </div>
