@@ -11,6 +11,7 @@ const Feed = () => {
   const [currentIndex, setCurrentIndex] = useState(1);
   const [prevArrowColor, setPrevArrowColor] = useState("#C7C2C2");
   const [nextArrowColor, setNextArrowColor] = useState("#C7C2C2");
+  const transitionStyle = "ease-in-out transition-transform duration-300";
 
   const handleNext = () => {
     if (currentIndex < feedData.length - 1) {
@@ -38,7 +39,7 @@ const Feed = () => {
           type="button"
           className={`  ${
             currentIndex === 0 ? "opacity-50 cursor-not-allowed" : ""
-          }`}
+          } hover:scale-[1.1] ${transitionStyle} `}
           disabled={currentIndex === 0}
           onMouseEnter={() => setPrevArrowColor("#e7e7e7")}
           onMouseLeave={() => setNextArrowColor("#c7c2c2")}
@@ -48,7 +49,11 @@ const Feed = () => {
         <div className="cards w-10/12 flex justify-center items-center relative">
           {/* Left faded card */}
           {currentIndex > 0 && (
-            <div className="absolute flex flex-col gap-2 z-1 left-16 min-w-[15rem] min-h-[19rem] border border-gray-300 bg-primary-silver opacity-50 scale-90 rounded-custom-s transition-transform p-6">
+            // biome-ignore lint/a11y/useKeyWithClickEvents: <explanation>
+            <div
+              className={`absolute hover:scale-[0.95] ${transitionStyle} cursor-pointer flex flex-col gap-2 z-1 left-16 min-w-[15rem] min-h-[19rem] border border-gray-300 bg-primary-silver opacity-50 scale-90 rounded-custom-s transition-transform p-6`}
+              onClick={handlePrev}
+            >
               <div className="h-[10rem] border-2 border-primary-dark rounded-custom-xs object-cover overflow-hidden">
                 <img
                   src={
@@ -95,7 +100,9 @@ const Feed = () => {
           )}
 
           {/* Active card */}
-          <div className="z-10 min-w-[19rem] min-h-[23rem] flex flex-col gap-2 border border-gray-400 rounded-custom-s bg-primary-silver shadow-lg p-6">
+          <div
+            className={`z-10 hover:scale-[1.02] ${transitionStyle} cursor-pointer min-w-[19rem] min-h-[23rem] flex flex-col gap-2 border border-gray-400 rounded-custom-s bg-primary-silver shadow-lg p-6`}
+          >
             <div className="w-full h-[13rem] border-2 border-primary-dark rounded-custom-xs object-cover overflow-hidden">
               <img
                 src={
@@ -142,7 +149,11 @@ const Feed = () => {
 
           {/* Right faded card */}
           {currentIndex < feedData.length - 1 && (
-            <div className="absolute flex flex-col gap-2 right-16 min-w-[15rem] min-h-[19rem] border border-gray-300 bg-primary-silver opacity-50 scale-90 rounded-custom-s transition-transform p-6">
+            // biome-ignore lint/a11y/useKeyWithClickEvents: <explanation>
+            <div
+              className={`absolute hover:scale-[0.95] ${transitionStyle} cursor-pointer flex flex-col gap-2 right-16 min-w-[15rem] min-h-[19rem] border border-gray-300 bg-primary-silver opacity-50 scale-90 rounded-custom-s transition-transform p-6`}
+              onClick={handleNext}
+            >
               <div className="h-[10rem] border-2 border-primary-dark rounded-custom-xs object-cover overflow-hidden">
                 <img
                   src={
@@ -196,7 +207,7 @@ const Feed = () => {
             currentIndex === feedData.length - 1
               ? "opacity-50 cursor-not-allowed"
               : ""
-          }`}
+          } hover:scale-[1.1] ${transitionStyle}`}
           disabled={currentIndex === feedData.length - 1}
           onMouseEnter={() => setNextArrowColor("#e7e7e7")}
           onMouseLeave={() => setNextArrowColor("#c7c2c2")}
