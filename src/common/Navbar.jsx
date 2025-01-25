@@ -45,7 +45,9 @@ const Navbar = () => {
           ))}
         </div>
         <li className="hidden md:block cursor-pointer">
-          <img src={logo} alt="Logo" width={"125px"} title="Feed" />
+          <Link to="/">
+            <img src={logo} alt="Logo" width={"125px"} title="Feed" />
+          </Link>
         </li>
         <div className="rightIcons flex items-stretch justify-center gap-3 md:gap-6">
           {rightNavIcons.map((icon) => (
