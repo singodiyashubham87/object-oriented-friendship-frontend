@@ -7,7 +7,7 @@ const FriendsIcon = ({ color = "#92918D" }) => (
     xmlns="http://www.w3.org/2000/svg"
     aria-labelledby="friendsIconTitle"
   >
-    <title id="friendsIconTitle">Group of three connected people</title>
+    <title id="friendsIconTitle">Friends</title>
     <path
       d="M24.7695 12.4815C24.7695 15.2179 22.4549 17.5 19.5195 17.5C16.5841 17.5 14.2695 15.2179 14.2695 12.4815C14.2695 9.74505 16.5841 7.46295 19.5195 7.46295C22.4549 7.46295 24.7695 9.74505 24.7695 12.4815Z"
       stroke={color}

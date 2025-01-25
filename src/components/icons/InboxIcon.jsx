@@ -7,7 +7,7 @@ const InboxIcon = ({ color = "#92918D" }) => (
     xmlns="http://www.w3.org/2000/svg"
     aria-labelledby="inboxIconTitle"
   >
-    <title id="inboxIconTitle">Inbox mail icon</title>
+    <title id="inboxIconTitle">Inbox</title>
     <rect
       x="7.01953"
       y="9.47223"
