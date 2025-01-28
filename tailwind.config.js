@@ -14,6 +14,7 @@ export default {
         "secondary-silver": "#92918D",
         "secondary-silver-70": "#92918DB3",
         "tertiary-silver": "#D9D9D9",
+        "tertiary-silver-70": "#D9D9D9B3",
         "input-placeholder-gray": "#92918D",
         "primary-gray": "#B0AFAF",
         "primary-gray-30": "#B0AFAF4D",

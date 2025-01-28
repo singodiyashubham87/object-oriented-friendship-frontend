@@ -36,6 +36,12 @@ const Profile = () => {
   const transitionStyle = "ease-in-out transition-transform duration-1000";
   const [isEditable, setIsEditable] = useState(false);
 
+  const genderOptionsArray = [
+    { label: "Select Gender", value: "" },
+    { label: "Male", value: "Male" },
+    { label: "Female", value: "Female" },
+  ];
+
   const handleSave = async (values) => {
     try {
       await profileSchema.validate(values, { abortEarly: false });
@@ -89,7 +95,7 @@ const Profile = () => {
                   alt="Profile"
                   className="w-full h-full rounded-custom-xs border-2 border-primary-dark"
                 />
-                <div className="absolute top-[-5%] right-[-5%] bg-tertiary-silver p-2 border border-primary-dark shadow-md rounded-full">
+                <div className="absolute top-[-5%] right-[-5%] bg-tertiary-silver p-2 border border-primary-dark shadow-md rounded-full cursor-pointer hover:bg-white">
                   <PencilIcon size="20" />
                 </div>
               </div>
@@ -117,11 +123,15 @@ const Profile = () => {
                   className="px-2 py-1 rounded-custom-xxs outline-none w-full text-secondary-silver font-semibold bg-transparent border-xs border-primary-silver"
                   disabled={!isEditable}
                 >
-                  <option value="" disabled>
-                    Select Gender
-                  </option>
-                  <option value="male">Male</option>
-                  <option value="female">Female</option>
+                  {genderOptionsArray.map(({ label, value }) => (
+                    <option
+                      value={value}
+                      key={value}
+                      className="bg-primary-silver text-primary-dark font-semibold"
+                    >
+                      {label}
+                    </option>
+                  ))}
                 </Field>
 
                 <Field
