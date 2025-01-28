@@ -5,6 +5,7 @@ import FeedPrevArrowIcon from "@/components/icons/FeedPrevArrowIcon";
 import LocationIcon from "@/components/icons/LocationIcon";
 import RejectRequestIcon from "@/components/icons/RejectRequestIcon";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { feedData, indianStatesMap } from "./feedData";
 
 const Feed = () => {
@@ -100,52 +101,55 @@ const Feed = () => {
           )}
 
           {/* Active card */}
-          <div
-            className={`z-10 hover:scale-[1.02] ${transitionStyle} cursor-pointer min-w-[19rem] min-h-[23rem] flex flex-col gap-2 border border-gray-400 rounded-custom-s bg-primary-silver shadow-lg p-6`}
-          >
-            <div className="w-full h-[13rem] border-2 border-primary-dark rounded-custom-xs object-cover overflow-hidden">
-              <img
-                src={
-                  feedData[currentIndex]?.image ||
-                  "https://imgs.search.brave.com/sMcgal2XI2iAo_tND_9PgnZWVnna0tvZoWgZnUnuQDw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NDFtMTcteWR6TEwu/anBn"
-                }
-                alt="Friend"
-                className="w-full h-full"
-              />
-            </div>
-            <div className="flex justify-between">
-              <p className="text-center text-primary-dark font-bold text-lg">
-                {feedData[currentIndex]?.name}
-              </p>
-              <div className="flex items-center gap-1">
-                <LocationIcon
-                  width="18"
-                  height="20"
-                  styles={{ paddingBottom: "0.2rem" }}
+
+          <Link to={"/profile/123"} className="z-10">
+            <div
+              className={`hover:scale-[1.02] ${transitionStyle} cursor-pointer min-w-[19rem] min-h-[23rem] flex flex-col gap-2 border border-gray-400 rounded-custom-s bg-primary-silver shadow-lg p-6`}
+            >
+              <div className="w-full h-[13rem] border-2 border-primary-dark rounded-custom-xs object-cover overflow-hidden">
+                <img
+                  src={
+                    feedData[currentIndex]?.image ||
+                    "https://imgs.search.brave.com/sMcgal2XI2iAo_tND_9PgnZWVnna0tvZoWgZnUnuQDw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NDFtMTcteWR6TEwu/anBn"
+                  }
+                  alt="Friend"
+                  className="w-full h-full"
                 />
-                <p className="text-primary-dark">
-                  {indianStatesMap[feedData[currentIndex]?.state]}
+              </div>
+              <div className="flex justify-between">
+                <p className="text-center text-primary-dark font-bold text-lg">
+                  {feedData[currentIndex]?.name}
                 </p>
+                <div className="flex items-center gap-1">
+                  <LocationIcon
+                    width="18"
+                    height="20"
+                    styles={{ paddingBottom: "0.2rem" }}
+                  />
+                  <p className="text-primary-dark">
+                    {indianStatesMap[feedData[currentIndex]?.state]}
+                  </p>
+                </div>
+              </div>
+              <div className="w-1/4 flex bg-primary-gray rounded-custom-xxs text-primary-dark border border-primary-dark font-semibold justify-center items-center gap-2">
+                <p className="text-primary-dark">{`${
+                  feedData[currentIndex]?.age || 21
+                }, `}</p>
+                <p className="text-primary-dark">{`${feedData[currentIndex]?.gender}`}</p>
+              </div>
+              <div className="buttons flex gap-8 mt-4 justify-center">
+                <div className="p-2 bg-primary-pink hover:bg-primary-pink-70 rounded-full border-xs border-primary-dark cursor-pointer">
+                  <RejectRequestIcon size="26" />
+                </div>
+                <div className="p-2 bg-primary-cyan hover:bg-primary-cyan-70 rounded-full border-xs border-primary-dark cursor-pointer">
+                  <BookmarkRequestUserIcon size="26" />
+                </div>
+                <div className="p-2 bg-primary-green hover:bg-primary-green-70 rounded-full border-xs border-primary-dark cursor-pointer">
+                  <AcceptRequestIcon size="26" />
+                </div>
               </div>
             </div>
-            <div className="w-1/4 flex bg-primary-gray rounded-custom-xxs text-primary-dark border border-primary-dark font-semibold justify-center items-center gap-2">
-              <p className="text-primary-dark">{`${
-                feedData[currentIndex]?.age || 21
-              }, `}</p>
-              <p className="text-primary-dark">{`${feedData[currentIndex]?.gender}`}</p>
-            </div>
-            <div className="buttons flex gap-8 mt-4 justify-center">
-              <div className="p-2 bg-primary-pink hover:bg-primary-pink-70 rounded-full border-xs border-primary-dark cursor-pointer">
-                <RejectRequestIcon size="26" />
-              </div>
-              <div className="p-2 bg-primary-cyan hover:bg-primary-cyan-70 rounded-full border-xs border-primary-dark cursor-pointer">
-                <BookmarkRequestUserIcon size="26" />
-              </div>
-              <div className="p-2 bg-primary-green hover:bg-primary-green-70 rounded-full border-xs border-primary-dark cursor-pointer">
-                <AcceptRequestIcon size="26" />
-              </div>
-            </div>
-          </div>
+          </Link>
 
           {/* Right faded card */}
           {currentIndex < feedData.length - 1 && (
