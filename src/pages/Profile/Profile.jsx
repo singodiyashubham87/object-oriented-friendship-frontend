@@ -88,14 +88,14 @@ const Profile = () => {
       >
         {() => (
           <Form className="w-full flex flex-col flex-grow justify-center items-center px-4 py-6 gap-10 overflow-y-auto overflow-x-hidden">
-            <div className="flex items-stretch p-10 w-full min-h-[16rem] flex-col md:flex-row gap-10">
-              <div className="relative w-64 h-80 object-cover">
+            <div className="flex items-center  p-10 w-full min-h-[16rem] flex-col md:flex-row gap-10">
+              <div className="relative w-64 aspect-square bg-white flex items-center justify-center rounded-custom-s border-2 border-primary-dark">
                 <img
                   src={imageSrc}
                   alt="Profile"
-                  className="w-full h-full rounded-custom-s border-2 border-primary-dark"
+                  className="w-full h-full object-contain"
                 />
-                <div className="absolute top-[-5%] right-[-5%] bg-tertiary-silver p-2 border border-primary-dark shadow-md rounded-full cursor-pointer hover:bg-white">
+                <div className="absolute z-100 top-[-5%] right-[-5%] bg-tertiary-silver p-2 border border-primary-dark shadow-md rounded-full cursor-pointer hover:bg-white">
                   <PencilIcon size="20" />
                 </div>
               </div>
