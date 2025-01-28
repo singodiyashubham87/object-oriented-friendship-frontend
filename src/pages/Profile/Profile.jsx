@@ -6,7 +6,7 @@ import * as Yup from "yup";
 import "react-toastify/dist/ReactToastify.css";
 
 const imageSrc =
-  "https://wallpapers.com/images/high/jethalal-in-taarak-mehta-ka-ooltah-chashmah-qi4ao3x0qts68ozq.webp";
+  "https://imgs.search.brave.com/KrIBfwcMYTw5y8uMbjRLirmXFrIp_8-pxvdzPQ6-VX4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pMC53/cC5jb20vcGljanVt/Ym8uY29tL3dwLWNv/bnRlbnQvdXBsb2Fk/cy9nb3JnZW91cy1z/dW5zZXQtb3Zlci10/aGUtc2VhLWZyZWUt/aW1hZ2UuanBlZz9o/PTgwMCZxdWFsaXR5/PTgw";
 
 const profileSchema = Yup.object().shape({
   firstName: Yup.string().matches(
@@ -88,24 +88,24 @@ const Profile = () => {
       >
         {() => (
           <Form className="w-full flex flex-col flex-grow justify-center items-center px-4 py-6 gap-10 overflow-y-auto overflow-x-hidden">
-            <div className="flex p-10 w-full min-h-[16rem] flex-col md:flex-row gap-10">
-              <div className="relative w-64 object-cover">
+            <div className="flex items-stretch p-10 w-full min-h-[16rem] flex-col md:flex-row gap-10">
+              <div className="relative w-64 h-80 object-cover">
                 <img
                   src={imageSrc}
                   alt="Profile"
-                  className="w-full h-full rounded-custom-xs border-2 border-primary-dark"
+                  className="w-full h-full rounded-custom-s border-2 border-primary-dark"
                 />
                 <div className="absolute top-[-5%] right-[-5%] bg-tertiary-silver p-2 border border-primary-dark shadow-md rounded-full cursor-pointer hover:bg-white">
                   <PencilIcon size="20" />
                 </div>
               </div>
 
-              <div className="p-4 rounded-custom-xs bg-dark-glassmorphism-50 flex-1 w-full h-full flex flex-grow flex-col gap-4 ">
+              <div className="p-4 rounded-custom-s bg-dark-glassmorphism-50 flex-1 w-full h-full flex flex-grow flex-col gap-4 ">
                 <Field
                   type="text"
                   name="firstName"
                   placeholder="First Name"
-                  className="px-2 py-1 rounded-custom-xxs outline-none w-full text-secondary-silver font-semibold bg-transparent border-xs border-primary-silver"
+                  className="px-2 py-1 rounded-custom-xs outline-none w-full text-secondary-silver font-semibold bg-transparent border-xs border-primary-silver"
                   disabled={!isEditable}
                 />
 
@@ -113,14 +113,14 @@ const Profile = () => {
                   type="text"
                   name="lastName"
                   placeholder="Last Name"
-                  className="px-2 py-1 rounded-custom-xxs outline-none w-full text-secondary-silver font-semibold bg-transparent border-xs border-primary-silver"
+                  className="px-2 py-1 rounded-custom-xs outline-none w-full text-secondary-silver font-semibold bg-transparent border-xs border-primary-silver"
                   disabled={!isEditable}
                 />
 
                 <Field
                   as="select"
                   name="gender"
-                  className="px-2 py-1 rounded-custom-xxs outline-none w-full text-secondary-silver font-semibold bg-transparent border-xs border-primary-silver"
+                  className="px-2 py-1 rounded-custom-xs outline-none w-full text-secondary-silver font-semibold bg-transparent border-xs border-primary-silver"
                   disabled={!isEditable}
                 >
                   {genderOptionsArray.map(({ label, value }) => (
@@ -138,7 +138,7 @@ const Profile = () => {
                   type="date"
                   name="dateOfBirth"
                   placeholder="Date of Birth"
-                  className="px-2 py-1 rounded-custom-xxs outline-none w-full text-secondary-silver font-semibold bg-transparent border-xs border-primary-silver"
+                  className="px-2 py-1 rounded-custom-xs outline-none w-full text-secondary-silver font-semibold bg-transparent border-xs border-primary-silver"
                   disabled={!isEditable}
                 />
 
@@ -146,7 +146,7 @@ const Profile = () => {
                   type="text"
                   name="phoneNumber"
                   placeholder="Phone Number"
-                  className="px-2 py-1 rounded-custom-xxs outline-none w-full text-secondary-silver font-semibold bg-transparent border-xs border-primary-silver"
+                  className="px-2 py-1 rounded-custom-xs outline-none w-full text-secondary-silver font-semibold bg-transparent border-xs border-primary-silver"
                   disabled={!isEditable}
                 />
 
@@ -154,7 +154,7 @@ const Profile = () => {
                   type="text"
                   name="country"
                   placeholder="Country"
-                  className="px-2 py-1 rounded-custom-xxs outline-none w-full text-secondary-silver font-semibold bg-transparent border-xs border-primary-silver"
+                  className="px-2 py-1 rounded-custom-xs outline-none w-full text-secondary-silver font-semibold bg-transparent border-xs border-primary-silver"
                   disabled={!isEditable}
                 />
               </div>
