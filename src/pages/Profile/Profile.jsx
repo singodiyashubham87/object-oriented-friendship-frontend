@@ -17,37 +17,38 @@ const profileSchema = Yup.object().shape({
     /^[a-zA-Z]+$/,
     "Only letters are allowed in last name",
   ),
-  gender: Yup.string().matches(/^(male|female|other)$/, "Invalid gender value"),
-  dateOfBirth: Yup.date().nullable(),
-  phoneNumber: Yup.string().matches(/^\d+$/, "Only digits are allowed"),
-  country: Yup.string().matches(/^[a-zA-Z\s]+$/, "Only letters are allowed"),
+  gender: Yup.string().matches(
+    /^(male|female)$/,
+    "Gender must be male or female",
+  ),
+  dateOfBirth: Yup.date().nullable().typeError("Please select a valid DOB"),
+  phoneNumber: Yup.string().matches(
+    /^\d{10}$/,
+    "Phone number must be exactly 10 digits",
+  ),
+  country: Yup.string().matches(
+    /^[a-zA-Z\s]+$/,
+    "Only letters are allowed in country",
+  ),
 });
 
 const Profile = () => {
   const transitionStyle = "ease-in-out transition-transform duration-1000";
   const [isEditable, setIsEditable] = useState(false);
 
-  const handleSave = async (values, setErrors) => {
+  const handleSave = async (values) => {
     try {
       await profileSchema.validate(values, { abortEarly: false });
 
       const hasValues = Object.values(values).some((value) => value !== "");
-      console.log("🚀 ~ handleSave ~ hasValues:", hasValues);
       if (hasValues) {
-        console.log("🚀 ~ handleSave ~ hasValues:", hasValues);
         updateUserData(values);
         setIsEditable(false);
       }
     } catch (validationErrors) {
-      const formattedErrors = validationErrors.inner.reduce((acc, err) => {
-        acc[err.path] = err.message;
-        return acc;
-      }, {});
-
-      setErrors(formattedErrors);
-
       for (const err of validationErrors.inner) {
         toast.error(err.message);
+        return;
       }
     }
   };
@@ -60,14 +61,12 @@ const Profile = () => {
   return (
     <div className="flex-grow flex flex-col justify-evenly items-center w-full h-11/12 bg-dark-glassmorphism-30 border-xs border-secondary-silver rounded-custom-s overflow-y-auto overflow-x-hidden px-6 py-6">
       <ToastContainer position="top-left" />
-      {/* Page Title */}
       <div className="flex justify-center h-1/5 ">
         <h2 className="text-4xl text-primary-silver font-bold uppercase">
           Profile
         </h2>
       </div>
 
-      {/* Profile Form */}
       <Formik
         initialValues={{
           firstName: "",
@@ -77,17 +76,13 @@ const Profile = () => {
           phoneNumber: "",
           country: "",
         }}
-        validationSchema={profileSchema}
-        validateOnBlur={false}
-        validateOnChange={false}
-        onSubmit={(values, actions) => {
-          handleSave(values, actions.setErrors);
+        onSubmit={(values) => {
+          handleSave(values);
         }}
       >
-        {({ errors }) => (
+        {() => (
           <Form className="w-full flex flex-col flex-grow justify-center items-center px-4 py-6 gap-10 overflow-y-auto overflow-x-hidden">
-            <div className="flex p-10 w-full min-h-[16rem] flex-col md:flex-row gap-10 bg-dark-glassmorphism-50 rounded-lg">
-              {/* Profile Image */}
+            <div className="flex p-10 w-full min-h-[16rem] flex-col md:flex-row gap-10">
               <div className="relative w-64 object-cover">
                 <img
                   src={imageSrc}
@@ -99,13 +94,12 @@ const Profile = () => {
                 </div>
               </div>
 
-              {/* Profile Details */}
-              <div className="flex-1 w-full h-full flex flex-grow flex-col gap-4">
+              <div className="p-4 rounded-custom-xs bg-dark-glassmorphism-50 flex-1 w-full h-full flex flex-grow flex-col gap-4 ">
                 <Field
                   type="text"
                   name="firstName"
                   placeholder="First Name"
-                  className="px-2 py-1 rounded-custom-xxs outline-none w-full"
+                  className="px-2 py-1 rounded-custom-xxs outline-none w-full text-secondary-silver font-semibold bg-transparent border-xs border-primary-silver"
                   disabled={!isEditable}
                 />
 
@@ -113,23 +107,28 @@ const Profile = () => {
                   type="text"
                   name="lastName"
                   placeholder="Last Name"
-                  className="px-2 py-1 rounded-custom-xxs outline-none w-full"
+                  className="px-2 py-1 rounded-custom-xxs outline-none w-full text-secondary-silver font-semibold bg-transparent border-xs border-primary-silver"
                   disabled={!isEditable}
                 />
 
                 <Field
-                  type="text"
+                  as="select"
                   name="gender"
-                  placeholder="Gender"
-                  className="px-2 py-1 rounded-custom-xxs outline-none w-full"
+                  className="px-2 py-1 rounded-custom-xxs outline-none w-full text-secondary-silver font-semibold bg-transparent border-xs border-primary-silver"
                   disabled={!isEditable}
-                />
+                >
+                  <option value="" disabled>
+                    Select Gender
+                  </option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </Field>
 
                 <Field
                   type="date"
                   name="dateOfBirth"
                   placeholder="Date of Birth"
-                  className="px-2 py-1 rounded-custom-xxs outline-none w-full"
+                  className="px-2 py-1 rounded-custom-xxs outline-none w-full text-secondary-silver font-semibold bg-transparent border-xs border-primary-silver"
                   disabled={!isEditable}
                 />
 
@@ -137,7 +136,7 @@ const Profile = () => {
                   type="text"
                   name="phoneNumber"
                   placeholder="Phone Number"
-                  className="px-2 py-1 rounded-custom-xxs outline-none w-full"
+                  className="px-2 py-1 rounded-custom-xxs outline-none w-full text-secondary-silver font-semibold bg-transparent border-xs border-primary-silver"
                   disabled={!isEditable}
                 />
 
@@ -145,13 +144,12 @@ const Profile = () => {
                   type="text"
                   name="country"
                   placeholder="Country"
-                  className="px-2 py-1 rounded-custom-xxs outline-none w-full"
+                  className="px-2 py-1 rounded-custom-xxs outline-none w-full text-secondary-silver font-semibold bg-transparent border-xs border-primary-silver"
                   disabled={!isEditable}
                 />
               </div>
             </div>
 
-            {/* Buttons Section */}
             <div className="flex justify-center gap-12 self-end w-full">
               <button
                 type="button"
