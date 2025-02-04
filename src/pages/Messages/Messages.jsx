@@ -60,7 +60,7 @@ const Messages = () => {
             );
           })}
         </div>
-        <div className="messageContent w-2/3 flex flex-col justify-between p-4 bg-dark-glassmorphism-50 border-sm border-secondary-silver rounded-custom-s">
+        <div className="messageContent w-2/3 flex flex-col justify-between p-4 rounded-custom-s">
           <div className="chats overflow-y-auto flex flex-col gap-2">
             {message?.map((msg) =>
               msg.isSentByMe ? (
