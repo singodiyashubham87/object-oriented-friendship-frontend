@@ -4,6 +4,10 @@ import { chatData, message } from "./data/chatAndMessages";
 
 const Messages = () => {
   const [selectedChatIndex, setSelectedChatIndex] = useState(0);
+  const [hoveredChatIndex, setHoveredChatIndex] = useState(null);
+
+  const transitionStyle = "ease-in-out transition-all duration-300";
+
   return (
     <div className="flex-grow flex flex-col justify-between items-center gap-8 w-full h-full bg-dark-glassmorphism-30 border-xs border-secondary-silver rounded-custom-s overflow-hidden px-6 py-6">
       <div className="flex justify-center">
@@ -11,21 +15,29 @@ const Messages = () => {
           Messages
         </h2>
       </div>
-      <div className="w-full p-4 flex-1 flex justify-between items-stretch gap-4 overflow-hidden border-sm border-secondary-silver rounded-custom-s">
+      <div className="w-full p-4 flex-1 flex justify-between items-stretch gap-4 overflow-hidden">
         <div className="chatListSidebar w-1/3 flex flex-col gap-2 overflow-y-auto p-4 rounded-custom-s">
           {chatData?.map((chat, index) => {
             const isChatSelected = selectedChatIndex === index;
+            const isChatHovered = hoveredChatIndex === index;
+
+            const isActive = isChatSelected || isChatHovered;
 
             return (
-              // biome-ignore lint/a11y/useKeyWithClickEvents: <explanation>
               <div
-                className={`flex border-sm p-4 gap-4 rounded-custom-s cursor-pointer ${
-                  isChatSelected
-                    ? "bg-primary-silver border-secondary-dark"
-                    : "bg-dark-glassmorphism-50 border-primary-silver"
-                }`}
-                key={chat.id}
+                className={`flex p-4 gap-4 rounded-custom-s cursor-pointer hover:bg-primary-silver  ${
+                  isActive ? "bg-primary-silver" : "bg-dark-glassmorphism-50"
+                } ${transitionStyle}`}
+                key={chat?.id}
                 onClick={() => setSelectedChatIndex(index)}
+                onKeyUp={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    setSelectedChatIndex(index);
+                  }
+                }}
+                onMouseEnter={() => setHoveredChatIndex(index)}
+                onMouseLeave={() => setHoveredChatIndex(null)}
+                tabIndex={chat?.id}
               >
                 <img
                   src={chat.avatarUrl}
@@ -35,9 +47,7 @@ const Messages = () => {
                 <div className="chatSlotContent">
                   <h6
                     className={`${
-                      isChatSelected
-                        ? "text-secondary-dark"
-                        : "text-primary-silver"
+                      isActive ? "text-secondary-dark" : "text-primary-silver"
                     } font-semibold`}
                   >
                     {chat.name?.length > 15
@@ -46,9 +56,7 @@ const Messages = () => {
                   </h6>
                   <span
                     className={`text-sm opacity-80 ${
-                      isChatSelected
-                        ? "text-secondary-dark"
-                        : "text-primary-silver"
+                      isActive ? "text-secondary-dark" : "text-primary-silver"
                     }`}
                   >
                     {`${chat.bio.slice(0, 16).trim()}${
@@ -104,7 +112,7 @@ const Messages = () => {
               name="message"
               id="messsage"
               placeholder="Type a message..."
-              className="w-full pr-2 pl-4 py-1 rounded-custom-s outline-none bg-dark-glassmorphism-30 border-2 border-primary-gray text-primary-silver"
+              className="w-full pr-2 pl-4 py-1 rounded-custom-s outline-none bg-dark-glassmorphism-30 border border-primary-gray text-primary-silver"
             />
             <div className="p-1 px-2 rounded-custom-s border-2 border-secondary-silver flex items-center cursor-pointer bg-secondary-silver hover:bg-secondary-dark">
               <MessageIcon size={16} />
