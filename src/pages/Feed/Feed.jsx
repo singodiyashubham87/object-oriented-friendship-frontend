@@ -1,5 +1,5 @@
 import AcceptRequestIcon from "@/components/icons/AcceptRequestIcon";
-import BookmarkRequestUserIcon from "@/components/icons/BookmarkRequestUserIcon";
+import FavouriteRequestUserIcon from "@/components/icons/FavouriteRequestUserIcon";
 import FeedNextArrowIcon from "@/components/icons/FeedNextArrowIcon";
 import FeedPrevArrowIcon from "@/components/icons/FeedPrevArrowIcon";
 import LocationIcon from "@/components/icons/LocationIcon";
@@ -91,7 +91,7 @@ const Feed = () => {
                   <RejectRequestIcon size="26" />
                 </div>
                 <div className="p-2 bg-primary-cyan hover:bg-primary-cyan-70 rounded-full border-xs border-primary-dark cursor-pointer">
-                  <BookmarkRequestUserIcon size="26" />
+                  <FavouriteRequestUserIcon size="26" />
                 </div>
                 <div className="p-2 bg-primary-green hover:bg-primary-green-70 rounded-full border-xs border-primary-dark cursor-pointer">
                   <AcceptRequestIcon size="26" />
@@ -142,7 +142,7 @@ const Feed = () => {
                   <RejectRequestIcon size="26" />
                 </div>
                 <div className="p-2 bg-primary-cyan hover:bg-primary-cyan-70 rounded-full border-xs border-primary-dark cursor-pointer">
-                  <BookmarkRequestUserIcon size="26" />
+                  <FavouriteRequestUserIcon size="26" />
                 </div>
                 <div className="p-2 bg-primary-green hover:bg-primary-green-70 rounded-full border-xs border-primary-dark cursor-pointer">
                   <AcceptRequestIcon size="26" />
@@ -194,7 +194,7 @@ const Feed = () => {
                   <RejectRequestIcon size="26" />
                 </div>
                 <div className="p-2 bg-primary-cyan hover:bg-primary-cyan-70 rounded-full border-xs border-primary-dark cursor-pointer">
-                  <BookmarkRequestUserIcon size="26" />
+                  <FavouriteRequestUserIcon size="26" />
                 </div>
                 <div className="p-2 bg-primary-green hover:bg-primary-green-70 rounded-full border-xs border-primary-dark cursor-pointer">
                   <AcceptRequestIcon size="26" />
