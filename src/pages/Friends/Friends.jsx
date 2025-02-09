@@ -3,9 +3,21 @@ import LocationIcon from "@/components/icons/LocationIcon";
 import MessageIcon from "@/components/icons/MessageIcon";
 import { friendsData } from "@/pages/Friends/data/friends";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Tooltip } from "react-tooltip";
 
 const Friends = () => {
+  const navigate = useNavigate();
+  const handleUserCardClick = (e, userId) => {
+    const isMessageBtnClicked = e?.target?.className?.includes("messageBtn");
+
+    return isMessageBtnClicked
+      ? navigate("/messages", {
+          state: { id: userId },
+        })
+      : navigate(`/profile/${userId}`);
+  };
+
   return (
     <div className="flex-grow flex flex-col justify-evenly items-center w-full h-11/12 bg-dark-glassmorphism-30 border-xs border-secondary-silver rounded-custom-s overflow-y-auto overflow-x-hidden px-6 py-6">
       <div className="flex justify-center h-1/5">
@@ -17,7 +29,9 @@ const Friends = () => {
         {friendsData?.map((friend, index) => (
           <div
             key={friend.id}
-            className="flex flex-col gap-2 items-center justify-stretch bg-dark-glassmorphism-70 rounded-custom-xs p-4 shadow-lg border-2 border-primary-gray-30"
+            className="flex flex-col gap-2 items-center justify-stretch bg-dark-glassmorphism-70 rounded-custom-xs p-4 shadow-lg border-2 border-primary-gray-30   hover:cursor-pointer transition-transform ease-in-out duration-300"
+            onClick={(e) => handleUserCardClick(e, friend?.id)}
+            onKeyDown={(e) => handleUserCardClick(e, friend?.id)}
           >
             <div className="w-24 border-2 border-primary-gray-30 overflow-hidden rounded-full">
               <img
@@ -57,7 +71,7 @@ const Friends = () => {
               <div className="flex gap-2 items-center bg-primary-silver-50 text-primary-dark px-4 py-1 rounded-custom-xs hover:bg-secondary-silver cursor-pointer">
                 <button
                   type="button"
-                  className="uppercase text-base font-primary font-semibold"
+                  className="messageBtn uppercase text-base font-primary font-semibold"
                 >
                   Message
                 </button>
