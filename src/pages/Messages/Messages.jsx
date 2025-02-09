@@ -1,9 +1,15 @@
 import MessageIcon from "@/components/icons/MessageIcon";
 import React, { useState } from "react";
+import { useLocation } from "react-router-dom";
 import { chatData, message } from "./data/chatAndMessages";
 
 const Messages = () => {
-  const [selectedChatIndex, setSelectedChatIndex] = useState(0);
+  const location = useLocation();
+  const currentPageState = location.state;
+
+  const [selectedChatIndex, setSelectedChatIndex] = useState(
+    currentPageState?.id ?? 0,
+  );
   const [hoveredChatIndex, setHoveredChatIndex] = useState(null);
 
   const transitionStyle = "ease-in-out transition-all duration-300";
