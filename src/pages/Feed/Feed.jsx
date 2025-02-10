@@ -5,10 +5,11 @@ import FeedPrevArrowIcon from "@/components/icons/FeedPrevArrowIcon";
 import LocationIcon from "@/components/icons/LocationIcon";
 import RejectRequestIcon from "@/components/icons/RejectRequestIcon";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { feedData, indianStatesMap } from "./feedData";
 
 const Feed = () => {
+  const navigate = useNavigate();
   const [currentIndex, setCurrentIndex] = useState(1);
   const [prevArrowColor, setPrevArrowColor] = useState("#C7C2C2");
   const [nextArrowColor, setNextArrowColor] = useState("#C7C2C2");
@@ -24,6 +25,30 @@ const Feed = () => {
     if (currentIndex > 0) {
       setCurrentIndex(currentIndex - 1);
     }
+  };
+  const handleProfileClick = (e) => {
+    e.preventDefault();
+    const tagName = e.target.tagName.toLowerCase();
+
+    if (["button", "svg", "path"].includes(tagName)) {
+      return;
+    }
+    navigate(`/profile/${feedData[currentIndex]?.id}`);
+  };
+
+  const handleRejectClick = () => {
+    // TODO: Add API call to reject the request
+    alert("Request rejected!");
+  };
+
+  const handleAcceptClick = () => {
+    // TODO: Add API call to accept the request
+    alert("Request accepted!");
+  };
+
+  const handleBookmarkClick = () => {
+    // TODO: Add API call to bookmark the user
+    alert("User bookmarked!");
   };
 
   return (
@@ -102,54 +127,66 @@ const Feed = () => {
 
           {/* Active card */}
 
-          <Link to={"/profile/123"} className="z-10">
-            <div
-              className={`hover:scale-[1.02] ${transitionStyle} cursor-pointer min-w-[19rem] min-h-[23rem] flex flex-col gap-2 border border-gray-400 rounded-custom-s bg-primary-silver shadow-lg p-6`}
-            >
-              <div className="w-full h-[13rem] border-2 border-primary-dark rounded-custom-xs object-cover overflow-hidden">
-                <img
-                  src={
-                    feedData[currentIndex]?.image ||
-                    "https://imgs.search.brave.com/sMcgal2XI2iAo_tND_9PgnZWVnna0tvZoWgZnUnuQDw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NDFtMTcteWR6TEwu/anBn"
-                  }
-                  alt="Friend"
-                  className="w-full h-full"
+          <div
+            className={`hover:scale-[1.02] ${transitionStyle} z-10 cursor-pointer min-w-[19rem] min-h-[23rem] flex flex-col gap-2 border border-gray-400 rounded-custom-s bg-primary-silver shadow-lg p-6`}
+            onClick={(e) => handleProfileClick(e)}
+            onKeyUp={(e) => e.key === "Enter" && handleProfileClick(e)}
+          >
+            <div className="w-full h-[13rem] border-2 border-primary-dark rounded-custom-xs object-cover overflow-hidden">
+              <img
+                src={
+                  feedData[currentIndex]?.image ||
+                  "https://imgs.search.brave.com/sMcgal2XI2iAo_tND_9PgnZWVnna0tvZoWgZnUnuQDw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NDFtMTcteWR6TEwu/anBn"
+                }
+                alt="Friend"
+                className="w-full h-full"
+              />
+            </div>
+            <div className="flex justify-between">
+              <p className="text-center text-primary-dark font-bold text-lg">
+                {feedData[currentIndex]?.name}
+              </p>
+              <div className="flex items-center gap-1">
+                <LocationIcon
+                  width="18"
+                  height="20"
+                  styles={{ paddingBottom: "0.2rem" }}
                 />
-              </div>
-              <div className="flex justify-between">
-                <p className="text-center text-primary-dark font-bold text-lg">
-                  {feedData[currentIndex]?.name}
+                <p className="text-primary-dark">
+                  {indianStatesMap[feedData[currentIndex]?.state]}
                 </p>
-                <div className="flex items-center gap-1">
-                  <LocationIcon
-                    width="18"
-                    height="20"
-                    styles={{ paddingBottom: "0.2rem" }}
-                  />
-                  <p className="text-primary-dark">
-                    {indianStatesMap[feedData[currentIndex]?.state]}
-                  </p>
-                </div>
-              </div>
-              <div className="w-1/4 flex bg-primary-gray rounded-custom-xxs text-primary-dark border border-primary-dark font-semibold justify-center items-center gap-2">
-                <p className="text-primary-dark">{`${
-                  feedData[currentIndex]?.age || 21
-                }, `}</p>
-                <p className="text-primary-dark">{`${feedData[currentIndex]?.gender}`}</p>
-              </div>
-              <div className="buttons flex gap-8 mt-4 justify-center">
-                <div className="p-2 bg-primary-pink hover:bg-primary-pink-70 rounded-full border-xs border-primary-dark cursor-pointer">
-                  <RejectRequestIcon size="26" />
-                </div>
-                <div className="p-2 bg-primary-cyan hover:bg-primary-cyan-70 rounded-full border-xs border-primary-dark cursor-pointer">
-                  <BookmarkRequestUserIcon size="26" />
-                </div>
-                <div className="p-2 bg-primary-green hover:bg-primary-green-70 rounded-full border-xs border-primary-dark cursor-pointer">
-                  <AcceptRequestIcon size="26" />
-                </div>
               </div>
             </div>
-          </Link>
+            <div className="w-1/4 flex bg-primary-gray rounded-custom-xxs text-primary-dark border border-primary-dark font-semibold justify-center items-center gap-2">
+              <p className="text-primary-dark">{`${
+                feedData[currentIndex]?.age || 21
+              }, `}</p>
+              <p className="text-primary-dark">{`${feedData[currentIndex]?.gender}`}</p>
+            </div>
+            <div className="buttons flex gap-8 mt-4 justify-center">
+              <button
+                type="button"
+                className="p-2 bg-primary-pink hover:bg-primary-pink-70 rounded-full border-xs border-primary-dark cursor-pointer"
+                onClick={() => handleRejectClick(feedData[currentIndex]?.id)}
+              >
+                <RejectRequestIcon size="26" />
+              </button>
+              <button
+                type="button"
+                className="p-2 bg-primary-cyan hover:bg-primary-cyan-70 rounded-full border-xs border-primary-dark cursor-pointer"
+                onClick={() => handleBookmarkClick(feedData[currentIndex]?.id)}
+              >
+                <BookmarkRequestUserIcon size="26" />
+              </button>
+              <button
+                type="button"
+                className="p-2 bg-primary-green hover:bg-primary-green-70 rounded-full border-xs border-primary-dark cursor-pointer"
+                onClick={() => handleAcceptClick(feedData[currentIndex]?.id)}
+              >
+                <AcceptRequestIcon size="26" />
+              </button>
+            </div>
+          </div>
 
           {/* Right faded card */}
           {currentIndex < feedData.length - 1 && (
