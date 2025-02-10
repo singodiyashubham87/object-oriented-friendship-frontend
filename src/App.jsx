@@ -1,4 +1,4 @@
-import Favourites from "@/pages/Favourites/Favourites.jsx";
+import Bookmark from "@/pages/Bookmark/Bookmark.jsx";
 import Feed from "@/pages/Feed/Feed.jsx";
 import Friends from "@/pages/Friends/Friends.jsx";
 import Login from "@/pages/Login/Login.jsx";
@@ -20,7 +20,7 @@ const App = () => {
           <Route index element={<Feed />} />
           <Route path="friends" element={<Friends />} />
           <Route path="messages" element={<Messages />} />
-          <Route path="favourites" element={<Favourites />} />
+          <Route path="bookmark" element={<Bookmark />} />
           <Route path="sent-requests" element={<SentRequests />} />
           <Route path="received-requests" element={<ReceivedRequests />} />
           <Route path="profile" element={<Profile />} />

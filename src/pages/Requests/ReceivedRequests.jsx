@@ -1,6 +1,6 @@
 import userAvatar from "@/assets/images/userAvatar.png";
 import AcceptRequestIcon from "@/components/icons/AcceptRequestIcon";
-import FavouriteRequestUserIcon from "@/components/icons/FavouriteRequestUserIcon";
+import BookmarkRequestUserIcon from "@/components/icons/BookmarkRequestUserIcon";
 import LocationIcon from "@/components/icons/LocationIcon";
 import RejectRequestIcon from "@/components/icons/RejectRequestIcon";
 import { friendsData } from "@/pages/Friends/data/friends";
@@ -63,7 +63,7 @@ const ReceivedRequests = () => {
                   <RejectRequestIcon size="20" />
                 </div>
                 <div className="p-sm bg-primary-cyan hover:bg-primary-cyan-70 rounded-custom-xxs border-xs border-primary-dark cursor-pointer">
-                  <FavouriteRequestUserIcon size="20" />
+                  <BookmarkRequestUserIcon size="20" />
                 </div>
                 <div className="p-sm bg-primary-green hover:bg-primary-green-70 rounded-custom-xxs border-xs border-primary-dark cursor-pointer">
                   <AcceptRequestIcon size="20" />

@@ -2,7 +2,7 @@ import logo from "@/assets/images/oof-logo.png";
 import profileImage from "@/assets/images/profile.png";
 import NavIcon from "@/components/NavIcon";
 import RequestButtons from "@/components/RequestButtons";
-import FavouriteIcon from "@/components/icons/FavouriteIcon";
+import BookmarkIcon from "@/components/icons/BookmarkIcon";
 import FriendsIcon from "@/components/icons/FriendsIcon";
 import InboxIcon from "@/components/icons/InboxIcon";
 import LogoutIcon from "@/components/icons/LogoutIcon";
@@ -25,7 +25,7 @@ const Navbar = () => {
   ];
 
   const rightNavIcons = [
-    { href: "/favourites", Icon: FavouriteIcon, name: "favourite" },
+    { href: "/bookmark", Icon: BookmarkIcon, name: "bookmark" },
   ];
 
   return (
